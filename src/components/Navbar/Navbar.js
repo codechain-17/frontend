@@ -12,12 +12,12 @@ const Navbar = () => {
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav ms-auto mb-2 mb-lg-0 li_menu_item">
                         <li className="nav-item"><Link className="nav-link" to="/">Inicio</Link></li>
-                        <li className="nav-item"><Link className="nav-link" to="/about">Acerca</Link></li>
+                        {/* <li className="nav-item"><Link className="nav-link" to="/about">Acerca</Link></li> */}
                         <li className="nav-item"><Link className="nav-link" to="/contact">Contacto</Link></li>
-                        <li className="nav-item"><Link className="nav-link" to="/faq">FAQ</Link></li>
+                        <li className="nav-item"><Link className="nav-link" to={{pathname: "https://www.getonbrd.com/blog/posts" }} target="_blank">Blog</Link></li>
 
-                        <li className="nav-item"><Link className="nav-link" to="#">Iniciar sesion</Link></li>
-                        <li className="nav-item"><Link className="nav-link" to="#">Registrarse</Link></li> 
+                        <li className="nav-item"><Link className="nav-link" to="/singin">Iniciar sesion</Link></li>
+                        <li className="nav-item"><Link className="nav-link" to="/singup">Registrarse</Link></li> 
                        
                     </ul>
                 </div>
