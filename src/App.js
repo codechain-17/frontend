@@ -13,6 +13,7 @@ import AboutSection from './components/Sections/AboutSection/AboutSection';
 import PricingSection from './components/Sections/PricingSection/PricingSection';
 import BlogHome from './components/Blog/BlogHome/BlogHome';
 import { SocialMediaNav } from './components/Sections/SocialMedias/SocialMediaNav';
+import { QuizSection } from './components/Sections/Quiz/QuizSection';
 //
 //import BlogPreviewSection from './components/Sections/BlogPreviewSection/BlogPreviewSection';
 //import ContactSection from './components/Sections/ContactSection/ContactSection';
@@ -32,10 +33,9 @@ function App() {
                         <SuscribeSection/>
                     </Route>
 
-                    {/* <Route exact path='/about'>
-                        <HeaderAbout options={'about'} />
-                        <AboutSection />
-                    </Route> */}
+                    <Route exact path='/quiz'>
+                        <QuizSection/>
+                    </Route>
 
                     <Route exact path='/contacto'>
                         <HeaderAbout options={'about'} />
