@@ -1,11 +1,11 @@
 const headerOptions = {
     home: {
-        title: 'A Bootstrap 5 template for modern businesses',
-        description: 'Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most popular front-end open source toolkit!',
-        primaryButton: 'Get Started',
-        secondaryButton: 'Learn More',
-        image: "https://dummyimage.com/600x400/343a40/6c757d",
-        backgroundColor: '',
+        title: 'Filtramos tu PRIMER empleo tecnológico.',
+        description: 'Un nueva iniciativa de Get on Board. Podrás postular a trabajos seleccionados de todo el mundo, poniendo a prueba tus habilidades.',
+        primaryButton: 'Iniciar',
+        secondaryButton: 'Saber más...',
+        image: "",
+        backgroundImage: '/img/bk_home.png',
         color: ''
     },
     about: {

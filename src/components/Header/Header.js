@@ -1,14 +1,18 @@
 import React from 'react';
 import headerOptions from './headerOptions';
 
+
 const Header = ({options}) => {
     return (
-        <header className="bg-dark py-5">
+        <header className="bg-dark py-5 bg" style={{backgroundImage:'url(/img/bk_home.png)'}}>
             <div className="container px-5">
                 <div className="row gx-5 align-items-center justify-content-center">
+                    <div className="col-xl-5 col-xxl-6 d-none d-xl-block text-center">
+                       
+                    </div>
                     <div className="col-lg-8 col-xl-7 col-xxl-6">
-                        <div className="my-5 text-center text-xl-start">
-                            <h1 className="display-5 fw-bolder text-white mb-2">{headerOptions[options].title}</h1>
+                    <div className="my-5 text-center text-xl-start">
+                            <h1 className="display-3 fw-bolder text-white mb-2">{headerOptions[options].title}</h1>
                             <p className="lead fw-normal text-white-50 mb-4">{headerOptions[options].description}</p>
                             <div className="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
                                 <a className="btn btn-primary btn-lg px-4 me-sm-3" href="#features">{headerOptions[options].primaryButton}</a>
@@ -16,7 +20,6 @@ const Header = ({options}) => {
                             </div>
                         </div>
                     </div>
-                    <div className="col-xl-5 col-xxl-6 d-none d-xl-block text-center"><img className="img-fluid rounded-3 my-5" src={headerOptions[options].image} alt="" /></div>
                 </div>
             </div>
         </header>
