@@ -1,17 +1,55 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { Link, useLocation } from 'react-router-dom'
 import {images} from '../../assets/images'
+import { companyData, jobsData } from '../../data/getData';
 
 const ProfileHeader = ({id}) => {
+    const [user, setUser] = useState(true)
+    const [ values, setValues ] = useState({
+        name: '',
+        description: '',
+        avatar: ''
+    });
+    const location = useLocation();
 
-    const user = {
+    const userData = {
         name: 'Juan Perez',
         description: "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum",
-        avatar: 'avatar3',
-        gender: 'male'
+        avatar: 'avatar3'
     }
 
-    const colorStyle = user.gender === 'male' ? '#9de8f4' : '#CE7072';
+    const getJobs = async () => {
+        const data = await jobsData()
+        const jobData = data.data.find((item =>item.id === id))
+        const companyId = jobData.attributes.company.data.id
+        console.log('getJobs', companyId)
+        return companyId.toString()
+    }
+
+    const getCompany = async () => {
+        const companyId = await getJobs()
+        console.log('getCompany', companyId)
+        const company = await companyData(companyId)
+        console.log(company)
+        setValues({
+            name: company.data.attributes.name,
+            description: company.data.attributes.description,
+            avatar: company.data.attributes.logo
+        })
+        return company
+    }
+
+
+    useEffect(()=>{
+        if (location.pathname.includes('dashboard')) {
+            setValues(userData)
+        }
+        if (location.pathname.includes('jobs')) {
+            setUser(false)
+            getCompany()
+        }
+
+    }, [location])
 
     return (
         <div className="row">
@@ -26,12 +64,23 @@ const ProfileHeader = ({id}) => {
                                 <div className="p-3 my-4 rounded text-center shadow-sm">
 
                                     <Link exact to={`/dashboard/${id}`}>
-                                        <img src={images[user.avatar]} alt='avatar' className="profile__avatarImage rounded-circle img-fluid mb-2" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="avatar images" style={{border: `5px solid ${colorStyle}`}} />
+                                        <img 
+                                            src={
+                                                user 
+                                                ? values && images[values.avatar]
+                                                : values && values.avatar
+                                            } 
+                                            alt='avatar' 
+                                            className="profile__avatarImage rounded-circle img-fluid mb-2" 
+                                            data-toggle="tooltip" 
+                                            data-placement="bottom" title="" 
+                                            data-original-title="avatar images" 
+                                        />
                                     </Link>
 
                                     <div>
-                                        <h3 className="title text-light">{user.name}</h3>
-                                        <p className="normal text-light">{user.description}</p>
+                                        <h3 className="title text-light">{values && values.name}</h3>
+                                        <p className="normal text-light">{values && values.description}</p>
                                     </div>
                                 </div>
                             </div>
