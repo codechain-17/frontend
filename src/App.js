@@ -16,6 +16,7 @@ import { SocialMediaNav } from './components/Sections/SocialMedias/SocialMediaNa
 import Dashboard from './components/Profiles/UserProfile/Dashboard';
 import ProfileData from './components/Profiles/UserProfile/ProfileData';
 import BussinessProfile from './components/Profiles/JobProfile/BussinessProfile';
+import SearchResults from './components/Search/SearchResults';
 //import BlogPreviewSection from './components/Sections/BlogPreviewSection/BlogPreviewSection';
 //import ContactSection from './components/Sections/ContactSection/ContactSection';
 
@@ -30,6 +31,7 @@ function App() {
                         <Header options={'home'}/>
                         <FeaturesSection/>
                         <TestimonialSection/>
+                        <SearchResults/>
                         <SocialMediaNav/>
                         <SuscribeSection/>
                     </Route>

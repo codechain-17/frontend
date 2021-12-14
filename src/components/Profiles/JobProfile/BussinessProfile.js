@@ -54,11 +54,11 @@ const BussinessProfile = () => {
                 {
                     values.remote 
                     ?
-                        <Badge pill bg="primary">
+                        <Badge pill bg="info">
                             Remoto
                         </Badge>
                     :
-                        <Badge pill bg="primary">
+                        <Badge pill bg="success">
                             {values.country}
                         </Badge>
                 }

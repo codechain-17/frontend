@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react'
+import { Spinner } from 'react-bootstrap';
 import { Link, useLocation } from 'react-router-dom'
 import {images} from '../../assets/images'
 import { companyData, jobsData } from '../../data/getData';
 
 const ProfileHeader = ({id}) => {
+    const [loader, setLoader] = useState(false)
     const [user, setUser] = useState(true)
     const [ values, setValues ] = useState({
         name: '',
@@ -36,6 +38,7 @@ const ProfileHeader = ({id}) => {
             description: company.data.attributes.description,
             avatar: company.data.attributes.logo
         })
+        setLoader(false)
         return company
     }
 
@@ -45,6 +48,7 @@ const ProfileHeader = ({id}) => {
             setValues(userData)
         }
         if (location.pathname.includes('jobs')) {
+            setLoader(true)
             setUser(false)
             getCompany()
         }
@@ -54,39 +58,49 @@ const ProfileHeader = ({id}) => {
     return (
         <div className="row">
             <div className="col-12">
-                <div className="mb-3 profile">
-                    <div className="row">
-                        <div className="col-12">
+                {
+                    loader 
+                        ? 
+                            <div className='container'>
+                                <Spinner animation="border" role="status" className='d-flex justify-content-center align-items-center'>
+                                    <span className="visually-hidden">Cargando...</span>
+                                </Spinner>
+                            </div>
+                        :
+                            <div className="mb-3 profile">
+                                <div className="row">
+                                    <div className="col-12">
 
-                            <button className="position-absolute btn ml-3 mt-3 text-white">Editar</button>
-                            
-                            <div className="col-12 ml-auto m-auto">
-                                <div className="p-3 my-4 rounded text-center shadow-sm">
+                                        <button className="position-absolute btn ml-3 mt-3 text-white">Editar</button>
+                                        
+                                        <div className="col-12 ml-auto m-auto">
+                                            <div className="p-3 my-4 rounded text-center shadow-sm">
 
-                                    <Link exact to={`/dashboard/${id}`}>
-                                        <img 
-                                            src={
-                                                user 
-                                                ? values && images[values.avatar]
-                                                : values && values.avatar
-                                            } 
-                                            alt='avatar' 
-                                            className="profile__avatarImage rounded-circle img-fluid mb-2" 
-                                            data-toggle="tooltip" 
-                                            data-placement="bottom" title="" 
-                                            data-original-title="avatar images" 
-                                        />
-                                    </Link>
+                                                <Link exact to={`/dashboard/${id}`}>
+                                                    <img 
+                                                        src={
+                                                            user 
+                                                            ? values && images[values.avatar]
+                                                            : values && values.avatar
+                                                        } 
+                                                        alt='avatar' 
+                                                        className="profile__avatarImage rounded-circle img-fluid mb-2" 
+                                                        data-toggle="tooltip" 
+                                                        data-placement="bottom" title="" 
+                                                        data-original-title="avatar images" 
+                                                    />
+                                                </Link>
 
-                                    <div>
-                                        <h3 className="title text-light">{values && values.name}</h3>
-                                        <p className="normal text-light">{values && values.description}</p>
+                                                <div>
+                                                    <h3 className="title text-light">{values && values.name}</h3>
+                                                    <p className="normal text-light">{values && values.description}</p>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
+                }
             </div>
         </div>
     )
