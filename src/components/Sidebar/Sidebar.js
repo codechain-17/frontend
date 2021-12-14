@@ -7,19 +7,31 @@ import { RiFileCopy2Fill } from "react-icons/ri";
 import { IoExit } from "react-icons/io5";
 
 const Sidebar = ({id}) => {
+
+  const logOut = () => {
+    fetch("/api/logout", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }).then(() => {
+      window.location = "/";
+    });
+  };
+
     return (
         <div className="col-md-4 col-lg-3 pr-md-4">
             <ul className="sidebar__menu">
-              <li className="sidebar__item pl-md-2 pr-md-0">
-                <NavLink exact to={`/dashboard/${id}`} activeClassName="sidebar--sidebar--active" className='sidebar__link'>
-                  Dashboard
-                </NavLink>
-                  <span className='sidebar__icon'>
-                    <AiFillDashboard />
-                  </span>
+              <li className="sidebar__item">
+                <NavLink exact to={`/dashboard/${id}`} activeClassName="sidebar--active bold" className='sidebar__link'>
+                    Dashboard
+                    <span className='sidebar__icon'>
+                      <AiFillDashboard />
+                    </span>
+                  </NavLink>
               </li>
               <li className="sidebar__item">
-                <NavLink exact to={`/dashboard/${id}/perfil`} activeClassName="sidebar--active" className='sidebar__link'>
+                <NavLink exact to={`/dashboard/${id}/perfil`} activeClassName="sidebar--active  bold" className='sidebar__link'>
                   Mi perfil
                   <span className='sidebar__icon'>
                     <FaUser />
@@ -27,7 +39,7 @@ const Sidebar = ({id}) => {
                 </NavLink>
               </li>
               <li className="sidebar__item">
-                <NavLink exact to={`/dashboard/${id}/postulaciones`} activeClassName="sidebar--active" className='sidebar__link'>
+                <NavLink exact to={`/dashboard/${id}/postulaciones`} activeClassName="sidebar--active  bold" className='sidebar__link'>
                   Mis postulaciones
                   <span className='sidebar__icon'>
                     <RiFileCopy2Fill />
@@ -35,7 +47,7 @@ const Sidebar = ({id}) => {
                 </NavLink>
               </li>
               <li className="sidebar__item">
-                <NavLink exact to={`/dashboard/${id}/guardado`} activeClassName="sidebar--active" className='sidebar__link'>
+                <NavLink exact to={`/dashboard/${id}/guardado`} activeClassName="sidebar--active  bold" className='sidebar__link'>
                   Guardados
                   <span className='sidebar__icon'>
                     <MdOutlineWork />
@@ -43,12 +55,16 @@ const Sidebar = ({id}) => {
                 </NavLink>
               </li>
               <li className="sidebar__item">
-                <NavLink exact to='' activeClassName="sidebar--active" className='sidebar__link'>
+                <button 
+                  className='sidebar__link border-0 ' 
+                  style={{backgroundColor: 'transparent'}}
+                  onClick={logOut}
+                  >
                   Salir
                   <span className='sidebar__icon'>
                     <IoExit />
                   </span>
-                </NavLink>
+                </button>
               </li>
             </ul>
         </div>

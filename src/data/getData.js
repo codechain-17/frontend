@@ -14,3 +14,9 @@ export const jobsDataPerPage = async (page) => {
     const res = await axios.get(`https://www.getonbrd.com/api/v0/search/jobs?query=%22Sin%20experiencia%22&per_page=10&page=${page}`)
     return res.data
 }
+
+// export const userData = async (id) => {
+//     const res = await axios.get(`https://www.getonbrd.com/api/v0/search/jobs?query=%22Sin%20experiencia%22&per_page=10&page=${id}`)
+//     return res.data
+// }
+
