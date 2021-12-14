@@ -7,13 +7,10 @@ const TestimonialSection = () => {
                 <div className="row gx-5 justify-content-center">
                     <div className="col-lg-10 col-xl-7">
                         <div className="text-center">
-                            <div className="fs-4 mb-4 fst-italic">"Working with Start Bootstrap templates has saved me tons of development time when building new projects! Starting with a Bootstrap template just makes things easier!"</div>
+                            <div className="fs-4 mb-4 fst-italic">"Elige un trabajo que te guste y no tendras que trabajar ni un día de tu vida..."</div>
                             <div className="d-flex align-items-center justify-content-center">
-                                <img className="rounded-circle me-3" src="https://dummyimage.com/40x40/ced4da/6c757d" alt="..." />
                                 <div className="fw-bold">
-                                    Tom Ato
-                                    <span className="fw-bold text-primary mx-1">/</span>
-                                    CEO, Pomodoro
+                                    Confucio
                                 </div>
                             </div>
                         </div>

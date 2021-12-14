@@ -14,10 +14,6 @@ const Header = ({options}) => {
                     <div className="my-5 text-center text-xl-start">
                             <h1 className="display-3 fw-bolder text-white mb-2">{headerOptions[options].title}</h1>
                             <p className="lead fw-normal text-white-50 mb-4">{headerOptions[options].description}</p>
-                            <div className="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
-                                <a className="btn btn-primary btn-lg px-4 me-sm-3" href="/signin">{headerOptions[options].primaryButton}</a>
-                                <a className="btn btn-outline-light btn-lg px-4" href="/singup">{headerOptions[options].secondaryButton}</a>
-                            </div>
                         </div>
                     </div>
                 </div>
