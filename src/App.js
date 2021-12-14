@@ -10,10 +10,10 @@ import FeaturesSection from './components/Sections/FeaturesSection/FeaturesSecti
 import TestimonialSection from './components/Sections/TestimonialSection/TestimonialSection';
 import SuscribeSection from './components/Sections/SuscribeSection/SuscribeSection';
 import AboutSection from './components/Sections/AboutSection/AboutSection';
-import PricingSection from './components/Sections/PricingSection/PricingSection';
 import BlogHome from './components/Blog/BlogHome/BlogHome';
-import UserProfile from './components/UserProfile/UserProfile';
+import Profile from './components/Profiles/Profile';
 import { SocialMediaNav } from './components/Sections/SocialMedias/SocialMediaNav';
+import Dashboard from './components/Profiles/UserProfile/Dashboard';
 //import BlogPreviewSection from './components/Sections/BlogPreviewSection/BlogPreviewSection';
 //import ContactSection from './components/Sections/ContactSection/ContactSection';
 
@@ -29,23 +29,17 @@ function App() {
                         <FeaturesSection/>
                         <TestimonialSection/>
                         <SocialMediaNav/>
-                        {/* <BlogPreviewSection/> */}
                         <SuscribeSection/>
                     </Route>
 
-                    {/* <Route exact path='/about'>
-                        <HeaderAbout options={'about'} />
-                        <AboutSection />
-                    </Route> */}
 
                     <Route exact path='/contacto'>
                         <HeaderAbout options={'about'} />
                         <AboutSection />
-                        {/* <ContactSection /> */}
                     </Route>
 
-                    <Route exact path='/pricing'>
-                        <PricingSection />
+                    <Route exact path='/login'>
+                       
                     </Route>
 
                     <Route exact path='/blog'>
@@ -53,7 +47,33 @@ function App() {
                     </Route>
 
                     <Route exact path='/dashboard/:id'>
-                        <UserProfile />
+                        <Profile>
+                            <Dashboard />
+                        </Profile>
+                    </Route>
+
+                    <Route exact path='/dashboard/:id/perfil'>
+                        <Profile>
+                            {/* ver y editar sus datos */}
+                        </Profile>
+                    </Route>
+
+                    <Route exact path='/dashboard/:id/postulaciones'>
+                        <Profile>
+                            {/* Listado de sus postulaciones */}
+                        </Profile>
+                    </Route>
+
+                    <Route exact path='/dashboard/:id/guardado'>
+                        <Profile>
+                            {/* Listado de sus favoritos */}
+                        </Profile>
+                    </Route>
+
+                    <Route exact path='/jobs/:id'>
+                        <Profile>
+                            {/* perfil de empleo */}
+                        </Profile>
                     </Route>
 
                 </Switch>
