@@ -17,7 +17,7 @@ const PillCard = ({link, icon, title, quantity, id}) => {
                             </div>
                             <div class="col d-flex justify-content-center align-items-center">
                                 <div class="numbers">
-                                    <p className='p-2'>{title}</p>
+                                    <p className='p-3 bold'>{title}</p>
                                 </div>
                             </div>
                         </div>

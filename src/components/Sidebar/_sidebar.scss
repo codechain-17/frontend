@@ -5,15 +5,15 @@
 
     &__menu {
         border: 1px solid #e6e7e9;
-        padding: 0;
+        padding: 1rem 0;
         background-color: #f4f4f4;
+        border-radius: 2rem;
         list-style-type: none;
     }
     
     &__item {
         position: relative;
         padding: 0.5rem 1rem;
-        border-bottom: 1px solid #e6e7e9;
     }
 
     &__icon {
@@ -24,6 +24,9 @@
     &__link {
         text-decoration: none;
         color: inherit;
+        &:hover {
+            color: $white;
+        }
     }
 
     &--active, &__item:hover {

@@ -31,7 +31,7 @@ const ProfileHeader = ({id}) => {
 
                                     <div>
                                         <h3 className="title text-light">{user.name}</h3>
-                                        <p className="title text-light">{user.description}</p>
+                                        <p className="normal text-light">{user.description}</p>
                                     </div>
                                 </div>
                             </div>
