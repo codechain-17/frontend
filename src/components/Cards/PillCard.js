@@ -2,10 +2,10 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 
-const PillCard = ({link, icon, title, quantity}) => {
+const PillCard = ({link, icon, title, quantity, id}) => {
     return (
         <div class="col-lg-4 col-sm-6">
-            <Link exact to={link} className='profile__link'>
+            <Link exact to={`/dashboard/${id}/${link}`} className='profile__link'>
                 <div class="pillCard mb-2 mb-md-5 py-3">
                     <div class="content">
                         <div class="row">
