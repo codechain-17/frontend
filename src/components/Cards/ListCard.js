@@ -12,30 +12,39 @@ const ListCard = ({id, title, minSalary, maxSalary, remote, category, country, c
                         {/* <span className="label label-danger pull-right">NEW !</span> */}
                     </h3>
                     <div>
-                        <Badge pill bg="primary">
+                        <Badge pill bg="primary" className='listBadge'>
                             {category}
                         </Badge>{' '}
                         {
                             remote
                                 ? 
-                                    <Badge pill bg="info">
+                                    <Badge pill bg="info" className='listBadge'>
                                         Remoto
                                     </Badge>
                                 :
-                                    <Badge pill bg="success">
+                                    <Badge pill bg="success" className='listBadge'>
                                         {country}
                                     </Badge>
                         }
                     </div>
             
                     <div className="btn-group mt-4">
-                        <span>Salario: ${minSalary}</span>
-                        <span> - ${maxSalary}</span>
+                        Salario: 
+                        {
+                            minSalary &&  <span>${minSalary} -</span>
+                        }
+                        {
+                            maxSalary && <span> ${maxSalary}</span>
+                        }
+                        {
+                            (!minSalary && !maxSalary) && 'Sin información'
+                        }
+                        
                     </div>
 
                     <div className="btn-toolbar pull-right" role="toolbar" aria-label="">
                         <Link exact to={`/jobs/${id}`}>
-                            <button className="btn btn-primary">VER MAS</button>
+                            <button className="btn btn-primary btn-lg px-4 me-sm-3 text-light">VER MAS</button>
                         </Link>
                     </div>
                 </li>

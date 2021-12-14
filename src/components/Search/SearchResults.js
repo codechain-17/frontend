@@ -74,8 +74,8 @@ const SearchResults = () => {
     }, [page])
 
     return (
-        <section className="py-5 bg-light" id="scroll-target" style={{backgroundColor: '#fff'}}>
-            <h2 className='text-center bold mb-4'>Búsquedas Junior</h2>
+        <section className="py-5 bg-light searchResults" >
+            <h2 className='text-center bold mb-4 text-light'>Búsquedas Junior</h2>
             {
                 loader 
                     ?   
@@ -95,7 +95,7 @@ const SearchResults = () => {
                                     {
                                         (page !== 1) &&
                                             <button 
-                                                className="btn btn-primary" 
+                                                className="btn btn-primary btn-lg px-4 me-sm-3 text-light" 
                                                 onClick={handlePreviousPagination}>
                                                 Anterior
                                             </button>
@@ -105,7 +105,7 @@ const SearchResults = () => {
                                     {
                                         (page !== totalPages) &&
                                             <button 
-                                                className="btn btn-primary"
+                                                className="btn btn-primary btn-lg px-4 me-sm-3 text-light"
                                                 onClick={handleNextPagination}
                                                 >Siguiente
                                             </button>

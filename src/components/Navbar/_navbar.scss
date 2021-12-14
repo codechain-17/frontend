@@ -1,10 +1,11 @@
 .li_menu_item a {
-    color: $verde-verde !important;
+    color: $celeste !important;
     font-weight: bold;
     font-size: 1rem;
-    
+     display: block;
+    width: auto;
     &:hover {
-        background-color: rgba(177, 230, 184, 0.315);
+        background-color: rgba(177, 222, 230, 0.315);
         border-radius: 3px;
         border: none;
     
@@ -19,3 +20,4 @@
 .logo {
     width: 30%;
 }
+

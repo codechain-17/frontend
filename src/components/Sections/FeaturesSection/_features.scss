@@ -17,3 +17,20 @@
         background-color:$rosa;
     }
 }
+.justify-content-evently {
+    justify-content: space-evenly;
+}
+.text-right {
+    text-align: center;
+    @media (min-width: 768px) {
+        text-align: right;
+    }
+}
+#features {
+    @media (min-width: 768px) {
+
+        .col-md-6 {
+            width: 100%;
+        }
+    }
+}
