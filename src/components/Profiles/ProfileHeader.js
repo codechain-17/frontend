@@ -58,7 +58,7 @@ const ProfileHeader = ({id}) => {
                     <div className="row">
                         <div className="col-12">
 
-                            <button className="position-absolute ml-3 mt-3 text-white">Editar</button>
+                            <button className="position-absolute btn ml-3 mt-3 text-white">Editar</button>
                             
                             <div className="col-12 ml-auto m-auto">
                                 <div className="p-3 my-4 rounded text-center shadow-sm">
