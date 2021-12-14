@@ -1,6 +1,6 @@
 
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import './App.scss';
+import './styles/App.scss';
 import Layout from './components/Layout/Layout';
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
@@ -14,6 +14,7 @@ import TeamSection from './components/Sections/TeamSection/TeamSection';
 import ContactSection from './components/Sections/ContactSection/ContactSection';
 import PricingSection from './components/Sections/PricingSection/PricingSection';
 import BlogHome from './components/Blog/BlogHome/BlogHome';
+import UserProfile from './components/UserProfile/UserProfile';
 
 function App() {
     return (
@@ -45,6 +46,10 @@ function App() {
 
                     <Route exact path='/blog'>
                         <BlogHome />
+                    </Route>
+
+                    <Route exact path='/dashboard/:id'>
+                        <UserProfile />
                     </Route>
 
                 </Switch>
