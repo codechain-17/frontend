@@ -31,3 +31,15 @@ background-color: #fff;
     }
 }
   
+/*------------------------------------
+    Dashboard
+------------------------------------*/
+
+.profile {
+    background-color: $celeste;
+    &__avatarImage {
+        background-color: white;
+        width: 8rem;
+        height: 8rem;
+    }
+}
