@@ -1,24 +1,27 @@
 import React from 'react'
+import ContactForm from '../../Forms/ContactForm'
+
 
 const AboutSection = () => {
-
-    const options = {
-        image: 'https://dummyimage.com/600x400/343a40/6c757d',
-        title: 'Our founding',
-        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto est, ut esse a labore aliquam beatae expedita. Blanditiis impedit numquam libero molestiae et fugit cupiditate, quibusdam expedita, maiores eaque quisquam.'
-    }
-
+    
     return (
         <section className="py-5 bg-light" id="scroll-target">
-            <div className="container px-5 my-5">
-                <div className="row gx-5 align-items-center">
-                    <div className="col-lg-6"><img className="img-fluid rounded mb-5 mb-lg-0" src={options.image} alt={options.title} /></div>
-                    <div className="col-lg-6">
-                        <h2 className="fw-bolder">{options.title}</h2>
-                        <p className="lead fw-normal text-muted mb-0">{options.description}</p>
+            <div className="container px-5">
+                    {/* <!-- Contact form--> */}
+                    <div className="bg-light rounded-3 py-5 px-4 px-md-5 mb-5">
+                        <div className="text-center mb-5">
+                            <div className="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i className="bi bi-envelope"></i></div>
+                            <h1 className="fw-bolder">Estemos en contacto</h1>
+                            <p className="lead fw-normal text-muted mb-0">Nos encanta saber de ti.</p>
+                        </div>
+                        <div className="row gx-5 justify-content-center">
+                            <div className="col-lg-8 col-xl-6">
+                                <ContactForm/>
+                            </div>
+                        </div>
                     </div>
+                
                 </div>
-            </div>
         </section>
     )
 }
