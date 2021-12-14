@@ -14,6 +14,8 @@ import BlogHome from './components/Blog/BlogHome/BlogHome';
 import Profile from './components/Profiles/Profile';
 import { SocialMediaNav } from './components/Sections/SocialMedias/SocialMediaNav';
 import Dashboard from './components/Profiles/UserProfile/Dashboard';
+import ProfileData from './components/Profiles/UserProfile/ProfileData';
+import BussinessProfile from './components/Profiles/JobProfile/BussinessProfile';
 //import BlogPreviewSection from './components/Sections/BlogPreviewSection/BlogPreviewSection';
 //import ContactSection from './components/Sections/ContactSection/ContactSection';
 
@@ -54,7 +56,7 @@ function App() {
 
                     <Route exact path='/dashboard/:id/perfil'>
                         <Profile>
-                            {/* ver y editar sus datos */}
+                            <ProfileData/>  
                         </Profile>
                     </Route>
 
@@ -72,7 +74,7 @@ function App() {
 
                     <Route exact path='/jobs/:id'>
                         <Profile>
-                            {/* perfil de empleo */}
+                            <BussinessProfile/>
                         </Profile>
                     </Route>
 
