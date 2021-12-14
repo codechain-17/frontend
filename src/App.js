@@ -1,6 +1,6 @@
 
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import './App.scss';
+import './styles/App.scss';
 import Layout from './components/Layout/Layout';
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
