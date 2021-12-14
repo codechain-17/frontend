@@ -7,54 +7,52 @@ import { RiFileCopy2Fill } from "react-icons/ri";
 import { IoExit } from "react-icons/io5";
 
 const Sidebar = ({id}) => {
-  return (
-    <div className="col-md-3 pr-md-4">
-      <div className="sidebar-left">
-        <ul className="list-unstyled sidebar-menu pl-md-2 pr-md-0">
-          <li>
-            <NavLink exact to={`/dashboard/${id}`} activeClassName="active">
-              Dashboard
-              <span>
-                <AiFillDashboard />
-              </span>
-            </NavLink>
-          </li>
-          <li>
-            <NavLink exact to={`/dashboard/${id}/perfil`} activeClassName="active">
-              Mi perfil
-              <span>
-                <FaUser />
-              </span>
-            </NavLink>
-          </li>
-          <li>
-            <NavLink exact to={`/dashboard/${id}/postulaciones`} activeClassName="active">
-              Mis postulaciones
-              <span>
-                <RiFileCopy2Fill />
-              </span>
-            </NavLink>
-          </li>
-          <li>
-            <NavLink exact to={`/dashboard/${id}/guardado`} activeClassName="active">
-              Guardados
-              <span>
-                <MdOutlineWork />
-              </span>
-            </NavLink>
-          </li>
-          <li>
-            <NavLink exact to='' activeClassName="active">
-              Salir
-              <span>
-                <IoExit />
-              </span>
-            </NavLink>
-          </li>
-        </ul>
-      </div>
-    </div>
-  );
+    return (
+        <div className="col-md-4 col-lg-3 pr-md-4">
+            <ul className="sidebar__menu">
+              <li className="sidebar__item pl-md-2 pr-md-0">
+                <NavLink exact to={`/dashboard/${id}`} activeClassName="sidebar--sidebar--active" className='sidebar__link'>
+                  Dashboard
+                </NavLink>
+                  <span className='sidebar__icon'>
+                    <AiFillDashboard />
+                  </span>
+              </li>
+              <li className="sidebar__item">
+                <NavLink exact to={`/dashboard/${id}/perfil`} activeClassName="sidebar--active" className='sidebar__link'>
+                  Mi perfil
+                  <span className='sidebar__icon'>
+                    <FaUser />
+                  </span>
+                </NavLink>
+              </li>
+              <li className="sidebar__item">
+                <NavLink exact to={`/dashboard/${id}/postulaciones`} activeClassName="sidebar--active" className='sidebar__link'>
+                  Mis postulaciones
+                  <span className='sidebar__icon'>
+                    <RiFileCopy2Fill />
+                  </span>
+                </NavLink>
+              </li>
+              <li className="sidebar__item">
+                <NavLink exact to={`/dashboard/${id}/guardado`} activeClassName="sidebar--active" className='sidebar__link'>
+                  Guardados
+                  <span className='sidebar__icon'>
+                    <MdOutlineWork />
+                  </span>
+                </NavLink>
+              </li>
+              <li className="sidebar__item">
+                <NavLink exact to='' activeClassName="sidebar--active" className='sidebar__link'>
+                  Salir
+                  <span className='sidebar__icon'>
+                    <IoExit />
+                  </span>
+                </NavLink>
+              </li>
+            </ul>
+        </div>
+    );
 };
 
 export default Sidebar;
