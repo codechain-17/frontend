@@ -3,9 +3,11 @@ import React, { useContext, useState } from 'react';
 import Axios from "axios";
 import { Link } from 'react-router-dom';
 import { UserContext } from '../../Context/UserContext';
+import { useHistory } from 'react-router-dom';
 
 const LoginForm = () => {
   const {setAuthUser} = useContext(UserContext)
+  const {push} = useHistory()
   const [dataUserName, setDataUserName] = useState([]);
   const [dataUserPass, setDataUserPass] = useState([]);
 
@@ -26,7 +28,7 @@ const LoginForm = () => {
               window.location = "/faillogin"
           } else if(status === 200 && data !== "No User Exists") {
               setAuthUser(true)
-              window.location = "/"
+              push('/') 
           }
       });
     };

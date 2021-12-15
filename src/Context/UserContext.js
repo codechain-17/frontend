@@ -15,7 +15,6 @@ export const UserProvider = ({children}) => {
             },
         }).then(() => {
             setAuthUser(false)
-            window.location = "/";
         });
     };
 

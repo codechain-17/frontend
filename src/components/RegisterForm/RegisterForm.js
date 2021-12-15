@@ -45,7 +45,7 @@ const RegisterForm = () => {
   };
 
   return (
-    <section className="vh-100 gradient-custom" style={{backgroundColor: "#E96E88"}}>
+    <section className="vh-100 gradient-custom" style={{backgroundColor: "#CE7072"}}>
       <div className="container py-1 h-100">
         <div className="row justify-content-center align-items-center h-100">
           <div className="col-12 col-lg-9 col-xl-7">

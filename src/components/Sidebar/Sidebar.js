@@ -6,9 +6,17 @@ import { MdOutlineWork } from "react-icons/md";
 import { RiFileCopy2Fill } from "react-icons/ri";
 import { IoExit } from "react-icons/io5";
 import { UserContext } from "../../Context/UserContext";
+import { useHistory } from "react-router-dom";
 
 const Sidebar = ({id}) => {
     const {logOut} = useContext(UserContext);
+    const {push} = useHistory()
+
+    const handleLogOut = () => {
+        logOut()
+        push('/')
+    }
+    
   
 
     return (
@@ -50,7 +58,7 @@ const Sidebar = ({id}) => {
                 <button 
                   className='sidebar__link border-0 ' 
                   style={{backgroundColor: 'transparent'}}
-                  onClick={logOut}
+                  onClick={handleLogOut}
                   >
                   Salir
                   <span className='sidebar__icon'>
