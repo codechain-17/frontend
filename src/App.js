@@ -20,6 +20,7 @@ import LoginForm from './components/LoginForm/LoginForm';
 import RegisterForm from './components/RegisterForm/RegisterForm';
 import { useContext } from "react";
 import { UserContext } from "./Context/UserContext";
+import ErrorPage from "./components/ErrorPage/ErrorPage";
 
 function App() {
   const {authUser} = useContext(UserContext)
@@ -41,11 +42,6 @@ function App() {
               <SearchResults />
               <SocialMediaNav />
               <SuscribeSection />
-            </Route>
-
-            <Route exact path="/contacto">
-              <Header options={"contact"} />
-              <ContactSection />
             </Route>
 
             <Route exact path="/login">
@@ -89,6 +85,11 @@ function App() {
               <Profile>
                 <BussinessProfile />
               </Profile>
+            </Route>
+
+            
+            <Route path="*">
+              <ErrorPage/>
             </Route>
 
           </Switch>
