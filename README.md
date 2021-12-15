@@ -27,4 +27,4 @@ Este proyecto forma parte de la edición 2021 de Awesome Fest.
 - [https://getonbrdjunior.herokuapp.com/](https://getonbrdjunior.herokuapp.com/)
 
 #### Video Presentación
-https://screenrec.com/share/luBmAPW3Ib
+https://www.dropbox.com/s/bltnc6eqtw0bmf4/getonbrdjunior.mov?dl=0
