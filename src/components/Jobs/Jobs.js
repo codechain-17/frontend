@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 import { UserContext } from '../../Context/UserContext';
 
 const Jobs = ({id, title, minSalary, maxSalary, remote, category, country, companyId}) => {
-    const {authUser, dataUser, logOut} = useContext(UserContext);
+    const { dataUser} = useContext(UserContext);
     const [data, setData] = useState([]);
 
     const post = () => {

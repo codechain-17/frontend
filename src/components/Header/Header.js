@@ -7,7 +7,7 @@ import headerOptions from './headerOptions';
 
 const Header = ({options}) => {
     const location = useLocation();
-    const { authUser} = useContext(UserContext);
+    const { dataUser} = useContext(UserContext);
 
 
 
@@ -27,13 +27,13 @@ const Header = ({options}) => {
                                 <div className="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
                                   
                                     {
-                                        !authUser && 
+                                        !dataUser.name && 
                                             <Link className="btn btn-primary btn-lg px-4 me-sm-3 text-light" exact to="/login">
                                                 {headerOptions[options].primaryButton}
                                             </Link>
                                     }
                                     {
-                                        !authUser && 
+                                        !dataUser.name && 
                                             <Link className="btn btn-outline-light border-white btn-lg px-4 text-light" exact to="/signup">
                                                 {headerOptions[options].secondaryButton}
                                             </Link>

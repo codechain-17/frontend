@@ -24,18 +24,20 @@ const ProfileHeader = ({id}) => {
         return companyId.toString()
     }
 
-    const getCompany = async () => {
-        const companyId = await getJobs()
-        console.log('getCompany', companyId)
-        const company = await companyData(companyId)
-        console.log(company)
-        setValues({
-            name: company.data.attributes.name,
-            description: company.data.attributes.description,
-            logo: company.data.attributes.logo
-        })
-        setLoader(false)
-        return company
+    const getCompany =  () => {
+        getJobs()
+            .then(res=>{
+                return companyData(res)
+            })
+            .then(res=> {
+                setValues({
+                    name: res.data.attributes.name,
+                    description: res.data.attributes.description,
+                    logo: res.data.attributes.logo
+                })
+            })
+            .finally(()=>setLoader(false))
+    
     }
 
 

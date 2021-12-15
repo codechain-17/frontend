@@ -4,6 +4,7 @@ import { SearchContext } from '../../Context/SearchContext'
 import { jobsData, jobsDataPerPage } from '../../data/getData'
 import CardList from '../Cards/CardList'
 import ListCard from '../Cards/ListCard'
+
 const SearchResults = () => {
     const [loader, setLoader] = useState(false)
     const { filterData } = useContext(SearchContext)

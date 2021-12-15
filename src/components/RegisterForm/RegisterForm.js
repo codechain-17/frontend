@@ -4,7 +4,7 @@ import Axios from "axios";
 import { UserContext } from "../../Context/UserContext";
 
 const RegisterForm = () => {
-  const {setAuthUser} = useContext(UserContext)
+  
   const [dataUserName, setDataUserName] = useState([]);
   const [dataName, setDataName] = useState([]);
   const [dataLastName, setDataLastName] = useState([]);
@@ -35,10 +35,10 @@ const RegisterForm = () => {
       const data = res.data;
       const status = res.status;
       if (data === "User Already Exists") {
-        setAuthUser(false)
+        
         window.location = "/failregister";
       } else if (status === 200 && data !== "User Already Exists") {
-        setAuthUser(true)
+        
         window.location = "/login";
       }
     });

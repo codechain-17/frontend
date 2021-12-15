@@ -6,7 +6,7 @@ import { UserContext } from '../../Context/UserContext';
 import { useHistory } from 'react-router-dom';
 
 const LoginForm = () => {
-  const {setAuthUser} = useContext(UserContext)
+  
   const {push} = useHistory()
   const [dataUserName, setDataUserName] = useState([]);
   const [dataUserPass, setDataUserPass] = useState([]);
@@ -24,10 +24,10 @@ const LoginForm = () => {
           const data = res.data;
           const status = res.status;
           if(data === "No User Exists") {
-              setAuthUser(false)
+            
               window.location = "/faillogin"
           } else if(status === 200 && data !== "No User Exists") {
-              setAuthUser(true)
+      
               push('/') 
           }
       });

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { UserContext } from '../../Context/UserContext';
 
 const Navbar = () => {
-    const {authUser, dataUser, logOut} = useContext(UserContext);
+    const { dataUser, logOut} = useContext(UserContext);
 
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -16,13 +16,13 @@ const Navbar = () => {
                     <ul className="navbar-nav ms-auto mb-2 mb-lg-0 li_menu_item">
                         <li className="nav-item"><Link className="nav-link" to={{pathname: "https://www.getonbrd.com/blog/posts" }} target="_blank">Blog</Link></li>
                         {
-                            !authUser &&
+                            !dataUser.name &&
                                 <li className="nav-item">
                                     <Link className="nav-link" to="/login">Iniciar sesion</Link>
                                 </li>
                         }
                         {
-                            authUser &&
+                            dataUser.name &&
                                 <>
                                     <li className="nav-item"><Link className="nav-link" to={`/dashboard/perfil`}>Mi perfil</Link></li>
                                     <li className="nav-item">

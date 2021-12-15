@@ -5,7 +5,7 @@ export const UserContext = createContext();
 
 export const UserProvider = ({children}) => {
     const [dataUser, setDataUser] = useState([]);
-    const [authUser, setAuthUser] = useState(false);
+    //const [authUser, setAuthUser] = useState(false);
 
     const logOut = () => {
         fetch("/api/logout", {
@@ -13,9 +13,7 @@ export const UserProvider = ({children}) => {
             headers: {
                 "Content-Type": "application/json",
             },
-        }).then(() => {
-            setAuthUser(false)
-        });
+        })
     };
 
     useEffect(() => {
@@ -35,8 +33,6 @@ export const UserProvider = ({children}) => {
     return (
         <UserContext.Provider value={{
             dataUser,
-            authUser,
-            setAuthUser,
             logOut
         }}>
             {children}

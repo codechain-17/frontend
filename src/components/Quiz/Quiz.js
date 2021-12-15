@@ -4,7 +4,7 @@ import { useHistory, useParams, Link } from "react-router-dom";
 import axios from "axios";
 
 export function Quiz() {
-  const { authUser, dataUser } = useContext(UserContext);
+  const { dataUser } = useContext(UserContext);
   const { push } = useHistory();
   const { category } = useParams();
 
@@ -14,6 +14,7 @@ export function Quiz() {
   const [answer, setAnswer] = useState([]);
 
   const { username } = dataUser;
+
 
   const questions = async () => {
 

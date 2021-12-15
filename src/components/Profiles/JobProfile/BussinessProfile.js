@@ -54,27 +54,28 @@ const BussinessProfile = () => {
     };
     
 
-    const getJobs = async () => {
-        const data = await jobsData()
-        const jobData = data.data.find((item =>item.id === id))
+    const getJobs =  () => {
+        jobsData()
+            .then((res)=>{
+                console.log(res.data)
+                return res.data.find((item =>item.id === id))
+            })
+            .then((res) =>setValues({
+                title: res.attributes.title,
+                descriptionHeadline: res.attributes.description_headline,
+                description: (res.attributes.description).replace(/<\/?[^>]+(>|$)|(&nbsp;)/g, ""),
+                projects: (res.attributes.projects.replace(/<\/?[^>]+(>|$)|(&nbsp;)/g, "")),
+                functionsHeadline: res.attributes.functions_headline,
+                functions: (res.attributes.functions).replace(/<\/?[^>]+(>|$)|(&nbsp;)/g, ""),
+                benefitsHeadline: res.attributes.benefits_headline,
+                benefits: (res.attributes.benefits).replace(/<\/?[^>]+(>|$)|(&nbsp;)/g, ""),
+                desirableHeadline: res.attributes.desirable_headline,
+                desirable: (res.attributes.desirable).replace(/<\/?[^>]+(>|$)|(&nbsp;)/g, ""),
+                remote: res.attributes.remote,
+                category: res.attributes.category_name,
+                country: res.attributes.country
+        }))
        
-        console.log(jobData)
-        setValues({
-            title: jobData.attributes.title,
-            descriptionHeadline: jobData.attributes.description_headline,
-            description: (jobData.attributes.description).replace(/<\/?[^>]+(>|$)|(&nbsp;)/g, ""),
-            projects: (jobData.attributes.projects.replace(/<\/?[^>]+(>|$)|(&nbsp;)/g, "")),
-            functionsHeadline: jobData.attributes.functions_headline,
-            functions: (jobData.attributes.functions).replace(/<\/?[^>]+(>|$)|(&nbsp;)/g, ""),
-            benefitsHeadline: jobData.attributes.benefits_headline,
-            benefits: (jobData.attributes.benefits).replace(/<\/?[^>]+(>|$)|(&nbsp;)/g, ""),
-            desirableHeadline: jobData.attributes.desirable_headline,
-            desirable: (jobData.attributes.desirable).replace(/<\/?[^>]+(>|$)|(&nbsp;)/g, ""),
-            remote: jobData.attributes.remote,
-            category: jobData.attributes.category_name,
-            country: jobData.attributes.country
-        })
-        
     }
 
     useEffect(()=>{        
@@ -122,8 +123,6 @@ const BussinessProfile = () => {
             </div>
             <div className='row'>
                 <div className='col-6'>
-
-                    <button className='btn btn-primary btn-lg px-4 me-sm-3 bold' onClick={handlePost}>POSTULAR</button>
 
                 <Link to={`/quiz/${values.category}`}>
                     <button className='btn btn-primary btn-lg px-4 me-sm-3 bold'>POSTULAR
