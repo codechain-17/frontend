@@ -25,6 +25,7 @@ Este proyecto forma parte de la edición 2021 de Awesome Fest.
 
 #### Deploy en Heroku
 - [https://getonbrdjunior.herokuapp.com/](https://getonbrdjunior.herokuapp.com/)
+- User: luks@gmail.com, Password:1234
 
 #### Video Presentación
 https://www.dropbox.com/s/bltnc6eqtw0bmf4/getonbrdjunior.mov?dl=0
