@@ -1,24 +1,20 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Spinner } from 'react-bootstrap';
 import { Link, useLocation } from 'react-router-dom'
 import {images} from '../../assets/images'
+import { UserContext } from '../../Context/UserContext';
 import { companyData, jobsData } from '../../data/getData';
 
 const ProfileHeader = ({id}) => {
+    const {dataUser} = useContext(UserContext)
     const [loader, setLoader] = useState(false)
     const [user, setUser] = useState(true)
     const [ values, setValues ] = useState({
         name: '',
         description: '',
-        avatar: ''
+        gender: ''
     });
     const location = useLocation();
-
-    const userData = {
-        name: 'Juan Perez',
-        description: "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum",
-        avatar: 'avatar3'
-    }
 
     const getJobs = async () => {
         const data = await jobsData()
@@ -36,7 +32,7 @@ const ProfileHeader = ({id}) => {
         setValues({
             name: company.data.attributes.name,
             description: company.data.attributes.description,
-            avatar: company.data.attributes.logo
+            logo: company.data.attributes.logo
         })
         setLoader(false)
         return company
@@ -45,7 +41,11 @@ const ProfileHeader = ({id}) => {
 
     useEffect(()=>{
         if (location.pathname.includes('dashboard')) {
-            setValues(userData)
+            setValues({
+                name: dataUser.name,
+                description: dataUser.portfolio,
+                gender: dataUser.gender
+            })
         }
         if (location.pathname.includes('jobs')) {
             setLoader(true)
@@ -80,8 +80,11 @@ const ProfileHeader = ({id}) => {
                                                     <img 
                                                         src={
                                                             user 
-                                                            ? values && images[values.avatar]
-                                                            : values && values.avatar
+                                                            ? values && 
+                                                                (values.gender === 'masculino' 
+                                                                    ? images.avatar1
+                                                                    : images.avatar5)
+                                                            : values && values.logo
                                                         } 
                                                         alt='avatar' 
                                                         className="profile__avatarImage rounded-circle img-fluid mb-2" 

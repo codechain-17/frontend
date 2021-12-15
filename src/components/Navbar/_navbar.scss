@@ -1,10 +1,12 @@
-.li_menu_item a {
-    color: $celeste !important;
-    font-weight: bold;
-    font-size: 1rem;
-     display: block;
-    width: auto;
-    &:hover {
+.li_menu_item {
+    a, button {
+        color: $celeste !important;
+        font-weight: bold;
+        font-size: 1rem;
+         display: block;
+        width: auto;
+    }
+    a:hover, button:hover {
         background-color: rgba(177, 222, 230, 0.315);
         border-radius: 3px;
         border: none;

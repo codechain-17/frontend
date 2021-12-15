@@ -18,14 +18,22 @@ import Postulaciones from "./components/Profiles/UserProfile/Postulaciones";
 import { SearchProvider } from "./Context/SearchContext";
 import LoginForm from './components/LoginForm/LoginForm';
 import RegisterForm from './components/RegisterForm/RegisterForm';
+import { useContext } from "react";
+import { UserContext } from "./Context/UserContext";
 
 function App() {
+  const {authUser} = useContext(UserContext)
+
   return (
     <SearchProvider>
       <BrowserRouter>
+
         <Layout>
+
           <Navbar />
+
           <Switch>
+          
             <Route exact path="/">
               <Header options={"home"} />
               <FeaturesSection />
@@ -48,38 +56,47 @@ function App() {
               <RegisterForm />
             </Route>
 
-            <Route exact path="/dashboard/:id">
-              <Profile>
-                <Dashboard />
-              </Profile>
-            </Route>
+            {
+              authUser &&
+                <>
+                    <Route exact path="/dashboard/:id">
+                      <Profile>
+                        <Dashboard />
+                      </Profile>
+                    </Route>
 
-            <Route exact path="/dashboard/:id/perfil">
-              <Profile>
-                <ProfileData />
-              </Profile>
-            </Route>
+                    <Route exact path="/dashboard/:id/perfil">
+                      <Profile>
+                        <ProfileData />
+                      </Profile>
+                    </Route>
 
-            <Route exact path="/dashboard/:id/postulaciones">
-              <Profile>
-                <Postulaciones />
-              </Profile>
-            </Route>
+                    <Route exact path="/dashboard/:id/postulaciones">
+                      <Profile>
+                        <Postulaciones />
+                      </Profile>
+                    </Route>
 
-            <Route exact path="/dashboard/:id/guardado">
-              <Profile>
-              {/* Listado de sus favoritos */}
-              </Profile>
-            </Route>
+                    <Route exact path="/dashboard/:id/guardado">
+                      <Profile>
+                      {/* Listado de sus favoritos */}
+                      </Profile>
+                    </Route>
+                </>
+            }
 
             <Route exact path="/jobs/:id">
               <Profile>
                 <BussinessProfile />
               </Profile>
             </Route>
+
           </Switch>
+
           <Footer />
+
         </Layout>
+
       </BrowserRouter>
     </SearchProvider>
   );

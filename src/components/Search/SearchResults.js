@@ -83,7 +83,7 @@ const SearchResults = () => {
 
     return (
         <section className="py-5 bg-light searchResults" >
-            <h2 className='text-center bold mb-4 text-light'>Búsquedas Junior</h2>
+            <h2 className='text-center bold mb-4'>Búsquedas Junior</h2>
             {
                 loader 
                     ?   

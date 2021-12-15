@@ -1,23 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { AiFillDashboard } from "react-icons/ai";
 import { FaUser } from "react-icons/fa";
 import { MdOutlineWork } from "react-icons/md";
 import { RiFileCopy2Fill } from "react-icons/ri";
 import { IoExit } from "react-icons/io5";
+import { UserContext } from "../../Context/UserContext";
 
 const Sidebar = ({id}) => {
-
-  const logOut = () => {
-    fetch("/api/logout", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    }).then(() => {
-      window.location = "/";
-    });
-  };
+    const {logOut} = useContext(UserContext);
+  
 
     return (
         <div className="col-md-4 col-lg-3 pr-md-4">
