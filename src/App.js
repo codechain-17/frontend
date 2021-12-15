@@ -7,7 +7,6 @@ import Header from "./components/Header/Header";
 import FeaturesSection from "./components/Sections/FeaturesSection/FeaturesSection";
 import TestimonialSection from "./components/Sections/TestimonialSection/TestimonialSection";
 import SuscribeSection from "./components/Sections/SuscribeSection/SuscribeSection";
-import ContactSection from "./components/Sections/ContactSection/ContactSection";
 import { QuizSection } from "./components/Quiz/QuizSection";
 import Profile from "./components/Profiles/Profile";
 import { SocialMediaNav } from "./components/Sections/SocialMedias/SocialMediaNav";
@@ -15,13 +14,13 @@ import Dashboard from "./components/Profiles/UserProfile/Dashboard";
 import ProfileData from "./components/Profiles/UserProfile/ProfileData";
 import BussinessProfile from "./components/Profiles/JobProfile/BussinessProfile";
 import SearchResults from "./components/Search/SearchResults";
-import Postulaciones from "./components/Profiles/UserProfile/Postulaciones";
 import { SearchProvider } from "./Context/SearchContext";
 import LoginForm from './components/LoginForm/LoginForm';
 import RegisterForm from './components/RegisterForm/RegisterForm';
 import { useContext } from "react";
 import { UserContext } from "./Context/UserContext";
 import ErrorPage from "./components/ErrorPage/ErrorPage";
+import Jobs from "./components/Jobs/Jobs";
 
 function App() {
   const {authUser} = useContext(UserContext)
@@ -56,25 +55,25 @@ function App() {
             {
               authUser &&
                 <>
-                    <Route exact path="/dashboard/:id">
+                    <Route exact path="/dashboard">
                       <Profile>
                         <Dashboard />
                       </Profile>
                     </Route>
 
-                    <Route exact path="/dashboard/:id/perfil">
+                    <Route exact path="/dashboard/perfil">
                       <Profile>
                         <ProfileData />
                       </Profile>
                     </Route>
 
-                    <Route exact path="/dashboard/:id/postulaciones">
+                    <Route exact path="/dashboard/postulaciones">
                       <Profile>
-                        <Postulaciones />
+                        <Jobs />
                       </Profile>
                     </Route>
 
-                    <Route exact path="/dashboard/:id/guardado">
+                    <Route exact path="/dashboard/guardado">
                       <Profile>
                       {/* Listado de sus favoritos */}
                       </Profile>

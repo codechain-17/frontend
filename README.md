@@ -13,14 +13,14 @@ Una nueva iniciativa de Get on Board, donde podrás postular a trabajos seleccio
 Este proyecto forma parte de la edición 2021 de Awesome Fest.
 
 #### Integrantes:
-- [https://github.com/valessol](Valeria Silveira)
-- [https://github.com/mmiguez77](Martin Miguez)
-- [https://github.com/lucasMaximilianoCueva](Lucas Cueva)
-- [https://github.com/nosemiusername](Rafael Mascayano)
+- [Valeria Silveira](https://github.com/valessol)
+- [Martin Miguez](https://github.com/mmiguez77)
+- [Lucas Cueva](https://github.com/lucasMaximilianoCueva)
+- [Rafael Mascayano](https://github.com/nosemiusername)
 
 #### Repositorios: 
-- [https://github.com/codechain-17/frontend](Frontend)
-- [https://github.com/codechain-17/backend](Backend)
+- [Frontend](https://github.com/codechain-17/frontend)
+- [Backend](https://github.com/codechain-17/backend)
 
 #### Deploy en Heroku
 - [https://getonbrdjunior.herokuapp.com/](https://getonbrdjunior.herokuapp.com/)

@@ -8,7 +8,7 @@ import { IoExit } from "react-icons/io5";
 import { UserContext } from "../../Context/UserContext";
 import { useHistory } from "react-router-dom";
 
-const Sidebar = ({id}) => {
+const Sidebar = () => {
     const {logOut} = useContext(UserContext);
     const {push} = useHistory()
 
@@ -23,7 +23,7 @@ const Sidebar = ({id}) => {
         <div className="col-md-4 col-lg-3 pr-md-4">
             <ul className="sidebar__menu">
               <li className="sidebar__item">
-                <NavLink exact to={`/dashboard/${id}`} activeClassName="sidebar--active bold" className='sidebar__link'>
+                <NavLink exact to={`/dashboard`} activeClassName="sidebar--active bold" className='sidebar__link'>
                     Dashboard
                     <span className='sidebar__icon'>
                       <AiFillDashboard />
@@ -31,7 +31,7 @@ const Sidebar = ({id}) => {
                   </NavLink>
               </li>
               <li className="sidebar__item">
-                <NavLink exact to={`/dashboard/${id}/perfil`} activeClassName="sidebar--active  bold" className='sidebar__link'>
+                <NavLink exact to={`/dashboard/perfil`} activeClassName="sidebar--active  bold" className='sidebar__link'>
                   Mi perfil
                   <span className='sidebar__icon'>
                     <FaUser />
@@ -39,7 +39,7 @@ const Sidebar = ({id}) => {
                 </NavLink>
               </li>
               <li className="sidebar__item">
-                <NavLink exact to={`/dashboard/${id}/postulaciones`} activeClassName="sidebar--active  bold" className='sidebar__link'>
+                <NavLink exact to={`/dashboard/postulaciones`} activeClassName="sidebar--active  bold" className='sidebar__link'>
                   Mis postulaciones
                   <span className='sidebar__icon'>
                     <RiFileCopy2Fill />
@@ -47,7 +47,7 @@ const Sidebar = ({id}) => {
                 </NavLink>
               </li>
               <li className="sidebar__item">
-                <NavLink exact to={`/dashboard/${id}/guardado`} activeClassName="sidebar--active  bold" className='sidebar__link'>
+                <NavLink exact to={`/dashboard/guardado`} activeClassName="sidebar--active  bold" className='sidebar__link'>
                   Guardados
                   <span className='sidebar__icon'>
                     <MdOutlineWork />
