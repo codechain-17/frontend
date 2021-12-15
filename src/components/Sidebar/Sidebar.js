@@ -1,23 +1,23 @@
-import React from "react";
+import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { AiFillDashboard } from "react-icons/ai";
 import { FaUser } from "react-icons/fa";
 import { MdOutlineWork } from "react-icons/md";
 import { RiFileCopy2Fill } from "react-icons/ri";
 import { IoExit } from "react-icons/io5";
+import { UserContext } from "../../Context/UserContext";
+import { useHistory } from "react-router-dom";
 
 const Sidebar = ({id}) => {
+    const {logOut} = useContext(UserContext);
+    const {push} = useHistory()
 
-  const logOut = () => {
-    fetch("/api/logout", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    }).then(() => {
-      window.location = "/";
-    });
-  };
+    const handleLogOut = () => {
+        logOut()
+        push('/')
+    }
+    
+  
 
     return (
         <div className="col-md-4 col-lg-3 pr-md-4">
@@ -58,7 +58,7 @@ const Sidebar = ({id}) => {
                 <button 
                   className='sidebar__link border-0 ' 
                   style={{backgroundColor: 'transparent'}}
-                  onClick={logOut}
+                  onClick={handleLogOut}
                   >
                   Salir
                   <span className='sidebar__icon'>

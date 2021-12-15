@@ -1,17 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext } from 'react'
+import { UserContext } from '../../../Context/UserContext';
 
 const ProfileData = () => {
-    const [dataUser, setDataUser] = useState([]);
-
-    useEffect(() => {
-      fetch("/api/getuser")
-        .then((res) => res.json())
-        .then((res) => setDataUser(res))
-        .catch((err) => {
-          console.log(`error: ${err}`);
-        });
-    }, []);
-
+    const {dataUser} = useContext(UserContext);
 
     return (
         <section className="py-5">
