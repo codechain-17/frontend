@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { Badge } from 'react-bootstrap';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { companyData, jobsData } from '../../../data/getData';
+import { QuizSection } from '../../Quiz/QuizSection';
 
 const BussinessProfile = () => {
     const {id} = useParams();
@@ -89,7 +90,10 @@ const BussinessProfile = () => {
             </div>
             <div className='row'>
                 <div className='col-6'>
-                    <button className='btn btn-primary btn-lg px-4 me-sm-3 bold'>POSTULAR</button>
+                <Link to={`/quiz/${values.category}`}>
+                    <button className='btn btn-primary btn-lg px-4 me-sm-3 bold'>POSTULAR
+                    </button>
+                </Link>
                 </div>
             </div>
         </>
