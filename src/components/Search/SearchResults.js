@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { Spinner } from 'react-bootstrap'
+import { SearchContext } from '../../Context/SearchContext'
 import { jobsData, jobsDataPerPage } from '../../data/getData'
 import CardList from '../Cards/CardList'
 import ListCard from '../Cards/ListCard'
 const SearchResults = () => {
     const [loader, setLoader] = useState(false)
+    const { filterData } = useContext(SearchContext)
     const [ page, setPage] = useState(1)
     const [values, setValues] = useState([{
         id:'',
@@ -45,14 +47,14 @@ const SearchResults = () => {
         await jobsData()
             .then(res=>{
                 const totalItems = res.data.length;
-                //console.log(totalItems)
+             
                 const totalPages = Math.ceil(totalItems/10);
-                //console.log(totalPages)
+              
                 return totalPages
             })
             
     }
-        console.log(totalPages)
+       
 
     const handlePreviousPagination = () => {
         if (page > 1) {
@@ -69,9 +71,15 @@ const SearchResults = () => {
 
     useEffect(()=>{
         setLoader(true)
-        totalPages()
-        searchItems(page)
-    }, [page])
+        if (filterData.length === 0) {
+            totalPages()
+            searchItems(page)
+        } else {
+            setValues(filterData)
+            setLoader(false)
+        }
+       
+    }, [page, filterData])
 
     return (
         <section className="py-5 bg-light searchResults" >
@@ -90,7 +98,7 @@ const SearchResults = () => {
                                 values && <CardList cardsData={values} CardComponent={ListCard}/>
                             }
 
-                            <div className='row'>
+                            {/* <div className='row'>
                                 <div className='col-3'>
                                     {
                                         (page !== 1) &&
@@ -110,8 +118,8 @@ const SearchResults = () => {
                                                 >Siguiente
                                             </button>
                                     }
-                                </div>
-                            </div>
+                                </div> 
+                            </div>*/}
                         </div>
             }
 

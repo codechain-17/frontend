@@ -15,60 +15,65 @@ import ProfileData from "./components/Profiles/UserProfile/ProfileData";
 import BussinessProfile from "./components/Profiles/JobProfile/BussinessProfile";
 import SearchResults from "./components/Search/SearchResults";
 import Postulaciones from "./components/Profiles/UserProfile/Postulaciones";
+import { SearchProvider } from "./Context/SearchContext";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Layout>
-        <Navbar />
-        <Switch>
-          <Route exact path="/">
-            <Header options={"home"} />
-            <FeaturesSection />
-            <TestimonialSection />
-            <SearchResults />
-            <SocialMediaNav />
-            <SuscribeSection />
-          </Route>
+    <SearchProvider>
+      <BrowserRouter>
+        <Layout>
+          <Navbar />
+          <Switch>
+            <Route exact path="/">
+              <Header options={"home"} />
+              <FeaturesSection />
+              <TestimonialSection />
+              <SearchResults />
+              <SocialMediaNav />
+              <SuscribeSection />
+            </Route>
 
-          <Route exact path="/contacto">
-            <Header options={"contact"} />
-            <ContactSection />
-          </Route>
+            <Route exact path="/contacto">
+              <Header options={"contact"} />
+              <ContactSection />
+            </Route>
 
-          <Route exact path="/login"></Route>
+            <Route exact path="/login"></Route>
 
-          <Route exact path="/dashboard/:id">
-            <Profile>
-              <Dashboard />
-            </Profile>
-          </Route>
+            <Route exact path="/dashboard/:id">
+              <Profile>
+                <Dashboard />
+              </Profile>
+            </Route>
 
-          <Route exact path="/dashboard/:id/perfil">
-            <Profile>
-              <ProfileData />
-            </Profile>
-          </Route>
+            <Route exact path="/dashboard/:id/perfil">
+              <Profile>
+                <ProfileData />
+              </Profile>
+            </Route>
 
-          <Route exact path="/dashboard/:id/postulaciones">
-            <Profile>
-              <Postulaciones />
-            </Profile>
-          </Route>
+            <Route exact path="/dashboard/:id/postulaciones">
+              <Profile>
+                <Postulaciones />
+              </Profile>
+            </Route>
 
-          <Route exact path="/dashboard/:id/guardado">
-            <Profile>{/* Listado de sus favoritos */}</Profile>
-          </Route>
+            <Route exact path="/dashboard/:id/guardado">
+              <Profile>
+              {/* Listado de sus favoritos */}
+              </Profile>
+            </Route>
 
-          <Route exact path="/jobs/:id">
-            <Profile>
-              <BussinessProfile />
-            </Profile>
-          </Route>
-        </Switch>
-        <Footer />
-      </Layout>
-    </BrowserRouter>
+            <Route exact path="/jobs/:id">
+              <Profile>
+                <BussinessProfile />
+              </Profile>
+            </Route>
+          </Switch>
+          <Footer />
+        </Layout>
+      </BrowserRouter>
+    </SearchProvider>
   );
 }
 
