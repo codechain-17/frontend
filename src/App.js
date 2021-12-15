@@ -10,13 +10,16 @@ import FeaturesSection from './components/Sections/FeaturesSection/FeaturesSecti
 import TestimonialSection from './components/Sections/TestimonialSection/TestimonialSection';
 import SuscribeSection from './components/Sections/SuscribeSection/SuscribeSection';
 import AboutSection from './components/Sections/AboutSection/AboutSection';
-import PricingSection from './components/Sections/PricingSection/PricingSection';
 import BlogHome from './components/Blog/BlogHome/BlogHome';
+import Profile from './components/Profiles/Profile';
 import { SocialMediaNav } from './components/Sections/SocialMedias/SocialMediaNav';
-import { QuizSection } from './components/Sections/Quiz/QuizSection';
-//
+import Dashboard from './components/Profiles/UserProfile/Dashboard';
+import ProfileData from './components/Profiles/UserProfile/ProfileData';
+import BussinessProfile from './components/Profiles/JobProfile/BussinessProfile';
+import SearchResults from './components/Search/SearchResults';
 //import BlogPreviewSection from './components/Sections/BlogPreviewSection/BlogPreviewSection';
 //import ContactSection from './components/Sections/ContactSection/ContactSection';
+import { QuizSection } from './components/Sections/Quiz/QuizSection';
 
 function App() {
     return (
@@ -28,27 +31,58 @@ function App() {
                         <Header options={'home'}/>
                         <FeaturesSection/>
                         <TestimonialSection/>
+                        <SearchResults/>
                         <SocialMediaNav/>
-                        {/* <BlogPreviewSection/> */}
                         <SuscribeSection/>
                     </Route>
 
-                    <Route exact path='/quiz'>
-                        <QuizSection/>
-                    </Route>
 
                     <Route exact path='/contacto'>
                         <HeaderAbout options={'about'} />
                         <AboutSection />
-                        {/* <ContactSection /> */}
                     </Route>
 
-                    <Route exact path='/pricing'>
-                        <PricingSection />
+                    <Route exact path='/login'>
+                      
                     </Route>
+
+                    <Route exact path='/quiz'>
+                      <QuizSection/>
+                    </Route>
+
 
                     <Route exact path='/blog'>
                         <BlogHome />
+                    </Route>
+
+                    <Route exact path='/dashboard/:id'>
+                        <Profile>
+                            <Dashboard />
+                        </Profile>
+                    </Route>
+
+                    <Route exact path='/dashboard/:id/perfil'>
+                        <Profile>
+                            <ProfileData/>  
+                        </Profile>
+                    </Route>
+
+                    <Route exact path='/dashboard/:id/postulaciones'>
+                        <Profile>
+                            {/* Listado de sus postulaciones */}
+                        </Profile>
+                    </Route>
+
+                    <Route exact path='/dashboard/:id/guardado'>
+                        <Profile>
+                            {/* Listado de sus favoritos */}
+                        </Profile>
+                    </Route>
+
+                    <Route exact path='/jobs/:id'>
+                        <Profile>
+                            <BussinessProfile/>
+                        </Profile>
                     </Route>
 
                 </Switch>
