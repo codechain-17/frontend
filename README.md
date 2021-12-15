@@ -1,7 +1,7 @@
 # Get On Board Junior
 ## Filtramos tu primer empleo tecnológico
 
-Como equipo nos dimos cuenta que hay una tremenda oportunidad poco cubierta para personas en el mundo de la tecnología sin experiencia. Muchos de ellos vienen de bootcamps, como nosotros, y tienen temores en el comienzo de su primeras labores. Por otro lado las organizaciones tienen temor de incorporarlos, dado el conocimiento que puedan tener. Adicionalmente desde getonboard es no resulta simple aplicar si se es nuevo. 
+Como equipo nos dimos cuenta que hay una tremenda oportunidad poco cubierta para personas sin experiencia en el mundo de la tecnología. Muchos de ellos vienen de bootcamps, como nosotros, y tienen temores en el comienzo de su primeras labores. Por otro lado las organizaciones tienen temor de incorporarlos, dado el conocimiento que puedan tener. Adicionalmente desde getonboard es no resulta simple aplicar si se es nuevo. 
 Nuestra solución pretende ser el vínculo entre ambos mundos.
 
 - Elige la categoría en la que destacas.
@@ -28,6 +28,3 @@ Este proyecto forma parte de la edición 2021 de Awesome Fest.
 
 #### Video Presentación
 https://screenrec.com/share/luBmAPW3Ib
-
-
-
