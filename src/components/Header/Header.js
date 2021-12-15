@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import headerOptions from './headerOptions';
@@ -5,6 +6,7 @@ import headerOptions from './headerOptions';
 
 const Header = ({options}) => {
     const location = useLocation();
+
     const [dataUser, setDataUser] = useState([]);
 
     useEffect(() => {
@@ -15,6 +17,7 @@ const Header = ({options}) => {
           console.log(`error: ${err}`);
         });
     }, []);
+
 
     return (
         <header className="bg-dark py-5 bg" style={{backgroundImage:'url(/img/bk_home.png)'}}>
@@ -30,8 +33,10 @@ const Header = ({options}) => {
                             {
                                 (location.pathname === '/') &&
                                 <div className="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
+                                  
                                     {!dataUser.name && <Link className="btn btn-primary btn-lg px-4 me-sm-3" exact to="/login">{headerOptions[options].primaryButton}</Link>}
                                     {!dataUser.name && <Link className="btn btn-outline-light btn-lg px-4" exact to="/signup">{headerOptions[options].secondaryButton}</Link>}
+
                                 </div>
                             }
                         </div>
