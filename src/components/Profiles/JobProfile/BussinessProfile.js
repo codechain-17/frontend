@@ -1,12 +1,11 @@
 import React, { useContext, useEffect, useState } from 'react'
 import Axios from "axios";
 import { Badge } from 'react-bootstrap';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { jobsData } from '../../../data/getData';
 import { UserContext } from '../../../Context/UserContext';
 import { QuizSection } from '../../Quiz/QuizSection';
-
 
 const BussinessProfile = () => {
     const {id} = useParams();
