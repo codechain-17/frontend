@@ -1,10 +1,15 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
+import Axios from "axios";
 import { Badge } from 'react-bootstrap';
+import { useHistory } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
-import { companyData, jobsData } from '../../../data/getData';
+import { jobsData } from '../../../data/getData';
+import { UserContext } from '../../../Context/UserContext';
 
 const BussinessProfile = () => {
     const {id} = useParams();
+    const {dataUser} = useContext(UserContext)
+    const {push} = useHistory();
     const [ values, setValues ] = useState({
         title: '',
         descriptionHeadline: '',
@@ -20,6 +25,33 @@ const BussinessProfile = () => {
         category: '',
         country: '' 
     });
+
+    const handlePost = () => {
+            Axios({
+              method: "POST",
+              data: {
+                user: {
+                  username: dataUser.username,
+                },
+                jobs: [
+                  {
+                    id: id
+                  },
+                ],
+              },
+              withCredentials: true,
+              url: "/api/jobs/create",
+            }).then((res) => {
+              const data = res.data;
+              const status = res.status;
+              if (data === "User Already Exists") {
+                window.location = "/failregister";
+              } else if (status === 200 && data !== "User Already Exists") {
+                push("/login");
+              }
+            });
+    };
+    
 
     const getJobs = async () => {
         const data = await jobsData()
@@ -89,7 +121,7 @@ const BussinessProfile = () => {
             </div>
             <div className='row'>
                 <div className='col-6'>
-                    <button className='btn btn-primary btn-lg px-4 me-sm-3 bold'>POSTULAR</button>
+                    <button className='btn btn-primary btn-lg px-4 me-sm-3 bold' onClick={handlePost}>POSTULAR</button>
                 </div>
             </div>
         </>

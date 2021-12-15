@@ -43,19 +43,18 @@ const SearchResults = () => {
 
 
     //Paginación
-    const totalPages = async () =>{
-        await jobsData()
+    const totalPages = () =>{
+        jobsData()
             .then(res=>{
                 const totalItems = res.data.length;
-             
                 const totalPages = Math.ceil(totalItems/10);
-              
+              console.log(totalPages)
                 return totalPages
             })
             
     }
-       
 
+    
     const handlePreviousPagination = () => {
         if (page > 1) {
             setPage(page - 1)
@@ -68,18 +67,21 @@ const SearchResults = () => {
         }
     }
 
+    useEffect(()=>{
+        searchItems(page.toString())
+    }, [page])
 
     useEffect(()=>{
         setLoader(true)
         if (filterData.length === 0) {
             totalPages()
-            searchItems(page)
+            searchItems(page.toString())
         } else {
             setValues(filterData)
             setLoader(false)
         }
        
-    }, [page, filterData])
+    }, [filterData])
 
     return (
         <section className="py-5 bg-light searchResults" >
@@ -98,7 +100,7 @@ const SearchResults = () => {
                                 values && <CardList cardsData={values} CardComponent={ListCard}/>
                             }
 
-                            {/* <div className='row'>
+                            <div className='row'>
                                 <div className='col-3'>
                                     {
                                         (page !== 1) &&
@@ -119,7 +121,7 @@ const SearchResults = () => {
                                             </button>
                                     }
                                 </div> 
-                            </div>*/}
+                            </div>
                         </div>
             }
 

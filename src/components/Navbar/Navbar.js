@@ -24,7 +24,7 @@ const Navbar = () => {
                         {
                             authUser &&
                                 <>
-                                    <li className="nav-item"><Link className="nav-link" to={`/dashboard/${dataUser.name}/perfil`}>Mi perfil</Link></li>
+                                    <li className="nav-item"><Link className="nav-link" to={`/dashboard/perfil`}>Mi perfil</Link></li>
                                     <li className="nav-item">
                                         <button
                                             className="nav-link border-0 " 
