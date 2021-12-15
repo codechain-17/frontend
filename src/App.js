@@ -7,6 +7,7 @@ import Header from "./components/Header/Header";
 import FeaturesSection from "./components/Sections/FeaturesSection/FeaturesSection";
 import TestimonialSection from "./components/Sections/TestimonialSection/TestimonialSection";
 import SuscribeSection from "./components/Sections/SuscribeSection/SuscribeSection";
+import { QuizSection } from "./components/Quiz/QuizSection";
 import Profile from "./components/Profiles/Profile";
 import { SocialMediaNav } from "./components/Sections/SocialMedias/SocialMediaNav";
 import Dashboard from "./components/Profiles/UserProfile/Dashboard";
@@ -86,6 +87,9 @@ function App() {
               </Profile>
             </Route>
 
+            <Route path="/quiz/:category">
+              <QuizSection />
+            </Route>
             
             <Route path="*">
               <ErrorPage/>

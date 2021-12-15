@@ -5,6 +5,8 @@ import { useHistory } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { jobsData } from '../../../data/getData';
 import { UserContext } from '../../../Context/UserContext';
+import { QuizSection } from '../../Quiz/QuizSection';
+
 
 const BussinessProfile = () => {
     const {id} = useParams();
@@ -121,7 +123,14 @@ const BussinessProfile = () => {
             </div>
             <div className='row'>
                 <div className='col-6'>
+
                     <button className='btn btn-primary btn-lg px-4 me-sm-3 bold' onClick={handlePost}>POSTULAR</button>
+
+                <Link to={`/quiz/${values.category}`}>
+                    <button className='btn btn-primary btn-lg px-4 me-sm-3 bold'>POSTULAR
+                    </button>
+                </Link>
+
                 </div>
             </div>
         </>
