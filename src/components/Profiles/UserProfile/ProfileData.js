@@ -1,15 +1,17 @@
-import React, { useState } from 'react'
-import { useParams } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
 
 const ProfileData = () => {
-    const [values, setValues0] = useState({
-        
-    })
-    const {id} = useParams();
+    const [dataUser, setDataUser] = useState([]);
 
+    useEffect(() => {
+      fetch("/api/getuser")
+        .then((res) => res.json())
+        .then((res) => setDataUser(res))
+        .catch((err) => {
+          console.log(`error: ${err}`);
+        });
+    }, []);
 
-
-    
 
     return (
         <section className="py-5">
@@ -18,12 +20,13 @@ const ProfileData = () => {
                 <div className='row'>
                     <div className='col-12'>
                         <ul className='py-4'>
-                            <li className='bold'>Email: <span>juanperez@mail.com</span></li>
-                            <li className='bold'>Github: <span>www.github.com/juanperez</span></li>
-                            <li className='bold'>Linkedin: <span>www.linkedin.com/in/juanperez</span></li>
-                            <li className='bold'>Portfolio: <span>www.juanperez.com</span></li>
-                            <li className='bold'>Genero: <span>Masculino</span></li>
-                            <li className='bold'>Área de conocimiento: <span>Programación</span></li>
+                            <li className='bold'>Nombre completo: <span>{dataUser.name} {dataUser.lastname}</span></li>
+                            <li className='bold'>Email: <span>{dataUser.username}</span></li>
+                            <li className='bold'>Github: <span>{dataUser.github}</span></li>
+                            <li className='bold'>Linkedin: <span>{dataUser.linkedin}</span></li>
+                            <li className='bold'>Portfolio: <span>{dataUser.portfolio}</span></li>
+                            <li className='bold'>Genero: <span>{dataUser.gender}</span></li>
+                            <li className='bold'>Área de conocimiento: <span>{dataUser.knowledgeareas}</span></li>
                         </ul>
                     </div>
                 </div>

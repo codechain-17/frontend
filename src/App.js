@@ -16,6 +16,8 @@ import BussinessProfile from "./components/Profiles/JobProfile/BussinessProfile"
 import SearchResults from "./components/Search/SearchResults";
 import Postulaciones from "./components/Profiles/UserProfile/Postulaciones";
 import { SearchProvider } from "./Context/SearchContext";
+import LoginForm from './components/LoginForm/LoginForm';
+import RegisterForm from './components/RegisterForm/RegisterForm';
 
 function App() {
   return (
@@ -38,7 +40,13 @@ function App() {
               <ContactSection />
             </Route>
 
-            <Route exact path="/login"></Route>
+            <Route exact path="/login">
+              <LoginForm />
+            </Route>
+
+            <Route exact path="/signup">
+              <RegisterForm />
+            </Route>
 
             <Route exact path="/dashboard/:id">
               <Profile>
